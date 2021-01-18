@@ -40,10 +40,20 @@ window.addEventListener('DOMContentLoaded', () => {
       a: 3,
     },
     {
-      q: 'What is the capital of Australia',
+      q: 'What is the capital of Australia?',
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    {
+      q: 'What is result of 3 + 4?',
+      o: ['3','4','6','7'],
+      a: 4
+    },
+    {
+      q: 'which country has the largest population?',
+      o: ['Australia','USA','New Zealand','Canada'],
+      a: 2
+    }
   ];
 
   // function to Display the quiz questions and answers from the object
@@ -74,17 +84,32 @@ window.addEventListener('DOMContentLoaded', () => {
         liElement = document.querySelector('#' + li);
         radioElement = document.querySelector('#' + r);
 
-        if (quizItem.a == i) {
+        if (quizItem.a ===i) {
           //change background color of li element here
+          li.style.backgroundColor='green';
+          score++
         }
+if (radioElement.checked) {}
 
-        if (radioElement.checked) {
-          // code for task 1 goes here
-        }
+
+
+        
+        
       }
     });
+
+
   };
 
   // call the displayQuiz function
   displayQuiz();
 });
+
+const submit=document.querySelector('#btnSubmit');
+submit.addEventListener('click',(result)=>{
+  document.querySelector('#quizResult').style.display = 'block';
+  start.style.display = 'none';
+result.innerHTML=score
+
+
+})
